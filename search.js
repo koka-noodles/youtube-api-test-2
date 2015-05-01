@@ -3,8 +3,8 @@
 
 // Helper function to display JavaScript value on HTML page.
 function showResponse(response) {
-    // var responseString = JSON.stringify(response, '', 2);
-    // document.getElementById('response').innerHTML += responseString; // can remove safely
+    var responseString = JSON.stringify(response, '', 2);
+    document.getElementById('response').innerHTML += responseString; // can remove safely
     console.log("Show response "+response);
 }
 
@@ -52,6 +52,13 @@ function onSearchResponse(response) { // stuckman
     console.log("on search response +response "+response);
     showResponse(response);
 
+    
+    var vnumber = response.pageInfo.totalResults;
+
+    console.log("vnumber"+vnumber);
+
+    if(vnumber > 0){
+
     var str = JSON.stringify(response.result);
     $('#search-container').html('<pre>' + str + '</pre>');
 
@@ -70,13 +77,31 @@ function onSearchResponse(response) { // stuckman
 
     console.log("stuckman response items: "+response.items[0].id.videoId);
 
+    console.log("stuckman response totalresults count: "+response.pageInfo.totalResults);
+
+    
+
     player = new YT.Player('ytplayer', {
       height: '390',
       width: '640'
     });
 
-
     document.getElementById("ytplayer").src = "https://www.youtube.com/embed/"+vid;
+
+  
+
+    player = new YT.Player('ytplayer2', {
+      height: '390',
+      width: '640'
+    });
+  
+    document.getElementById("ytplayer2").src = "https://www.youtube.com/embed/"+vid2;
+  }
+  else{
+    console.log("no results");
+
+    
+  }
     
 }
 
