@@ -100,6 +100,7 @@ function onSearchResponse(response) { // stuckman
   else{
     console.log("no results");
 
+    document.getElementById("ytplayer").innerHTML = "<h2>No results</h2>"
     
   }
     
