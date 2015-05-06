@@ -87,7 +87,7 @@ function onSearchResponse(response) { // stuckman
         document.getElementById("ytplayer"+vnumber).src = "https://www.youtube.com/embed/"+vid;
 
 
-        //incement down the capnum
+        //incement down the vnumber
         vnumber --;
       }
       while(vnumber > 0); // the cap number is more then none
